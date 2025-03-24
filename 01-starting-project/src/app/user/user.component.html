@@ -1,1 +1,10 @@
-<p>user works!</p>
+<div>
+  <button (click)="onSelectUser()">
+    <img [src]="imagePath()" [alt]="name" />
+    <span> {{ name }} </span>
+  </button>
+</div>
+
+<!-- FOR LINES 1 THROUGH 6 : 
+ 
+what the read here does is that it tells Angular that you're trying to get the value of the signal in this specific place, and then Angular will set up a 'subscription' behind the scenes which will make sure that this place where the signal value is being used, will be updated on the UI when the signal value changes. -->
