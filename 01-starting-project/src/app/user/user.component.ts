@@ -1,10 +1,5 @@
-import { Component, EventEmitter, Input, Output, output } from '@angular/core';
-
-interface User { // interface; another TS feature that allows you to define an object type.
-  id: string;
-  avatar: string;
-  name: string;
-}
+import { Component, EventEmitter, Input, Output} from '@angular/core';
+import { type User } from './user.model';
 
 @Component({
   selector: 'app-user',
@@ -15,6 +10,7 @@ interface User { // interface; another TS feature that allows you to define an o
 })
 export class UserComponent {
   @Input({required: true}) user!: User;
+  @Input({required: true}) selected!: boolean;
   @Output() select = new EventEmitter(); // allows us to emit custom values through the select property to any parent component thats interested.
 
 
