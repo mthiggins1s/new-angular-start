@@ -1,5 +1,10 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 
+interface User { // interface; another TS feature that allows you to define an object type.
+  id: string;
+  avatar: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-user',
@@ -9,18 +14,16 @@ import { Component, EventEmitter, Input, Output, output } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input({required: true}) id!: string; // this tells TS that a value MUST BE SET.
-  @Input({required: true}) avatar!: string; // this tells TS that a value MUST BE SET.
-  @Input({required: true}) name!: string; // this tells TS that a value MUST BE SET.
+  @Input({required: true}) user!: User;
   @Output() select = new EventEmitter(); // allows us to emit custom values through the select property to any parent component thats interested.
 
 
   imagePath () {
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id); // passing the id back to the parent component when a user is selected
+    this.select.emit(this.user.id); // passing the id back to the parent component when a user is selected
   }
 }
 

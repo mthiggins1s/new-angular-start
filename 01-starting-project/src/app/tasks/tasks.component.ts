@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  @Input({required: true}) name!: string;
+  @Input() name?: string; // ? tells TS that its fine that 'name' might not be SET. The alternative would be to change the type to 'undefined' with a union type ( | ).
 }
