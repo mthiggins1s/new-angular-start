@@ -14,7 +14,7 @@ import { TasksComponent } from "./tasks/tasks.component";
 })
 export class AppComponent {  // class called AppComponent. This class creates a custom element called app-root.
   users = DUMMY_USERS;
-  selectedUserId = 'ul';
+  selectedUserId?: string;
 
   get selectedUser() {
     return this.users.find((user) => user.id === this.selectedUserId);
